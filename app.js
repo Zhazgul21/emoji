@@ -1,11 +1,7 @@
 import{data as emoji} from './data.js';
 
 
- let card = {
-    title: '💯',
-    simbol: '100',
-    keywords: 'Hundred, points, symbol, wow, win, perfect, parties',
-}
+
 function renderCard(data){
     data.forEach(element => createCard(element));
 
@@ -21,15 +17,15 @@ function createCard(obj) {
 
     const emoj = document.createElement('p')
     emoj.className = 'emoj'
-    emoj.innerText = card.title
+    emoj.innerText = obj.symbol
 
     const title = document.createElement('p')
     title.className = 'title'
-    title.innerText = card.simbol
+    title.innerText = obj.title
 
     const keywords = document.createElement('p')
     keywords.className = 'desc'
-    keywords.innerText = card.keywords
+    keywords.innerText = obj.keywords
 
 
     wrap.append(cardDiv)
@@ -38,5 +34,5 @@ function createCard(obj) {
 
 }
 
-createCard(card)
+createCard(emoji)
 
