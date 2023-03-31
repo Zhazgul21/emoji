@@ -1,13 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 body{
-    background-color: #D4D3D8;
+    background-color: #EDEEF3;
 }
 .card{
     max-width: 292px;
-    max-height: 160px;
+    width: 100%;
+    max-height: 184px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: white;
     padding: 24px;
+    border: 1px solid #DEE2E6;
+    border-radius: 4px;
 }
 
 .title{
@@ -17,7 +24,7 @@ body{
     line-height: 28px;
     font-family: 'Inter';
     font-weight: 700;
-    margin: 18px 0 12px;
+    margin: 0 0 12px;
 }
 .emoj{
     text-align: center;
@@ -25,7 +32,7 @@ body{
     font-family: 'Inter';
     font-weight: 400;
     line-height: 48px;
-    margin: 24px 0 18px;
+    margin: 0 0 18px;
 }
 .desc{
     text-align: center;
