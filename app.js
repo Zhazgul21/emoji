@@ -1,17 +1,14 @@
 import{data as emoji} from './data.js';
 
+const body = document.body;
+const wrap = document.createElement('div')
+wrap.className = 'wrapper'
+body.append(wrap)
+const input = document.querySelector('#finder')
 
-
-function renderCard(data){
-    data.forEach(element => createCard(element));
-
-}
-renderCard(emoji)
 
 function createCard(obj) {
-    const body = document.body;
-    const wrap = document.createElement('div')
-    wrap.className = 'wrapper'
+
     const cardDiv = document.createElement('div')
     cardDiv.className = 'card'
 
@@ -30,9 +27,27 @@ function createCard(obj) {
 
     wrap.append(cardDiv)
     cardDiv.append(emoj, title, keywords)
-    body.append(wrap)
 
 }
+function renderCard(data){
+    data.forEach(element => createCard(element));
 
+}
+renderCard(emoji)
 createCard(emoji)
+
+const elem = document.querySelectorAll('.card')
+console.dir(elem)
+
+input.addEventListener('change', (event) => {
+    console.log(event.target.value)
+    elem.forEach(el => console.dir(el.children[2].innerText))
+})
+
+
+
+
+
+
+
 
