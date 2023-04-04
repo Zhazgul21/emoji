@@ -6,6 +6,7 @@ wrap.className = 'wrapper'
 body.append(wrap)
 
 
+
 function createCard(obj) {
 
     const cardDiv = document.createElement('div')
@@ -29,25 +30,25 @@ function createCard(obj) {
 
 }
 function renderCard(data){
-
-    data.forEach(element => createCard(element));
+    data.forEach(element => {
+        element.keywords = deleteDuplicates(element.keywords)
+        createCard(element)
+    });
 
 }
 renderCard(emoji)
 createCard(emoji)
 
+
 const input = document.querySelector('#finder')
 const elem = document.querySelectorAll('.card')
-console.dir(elem)
 
-input.addEventListener("change", (event) => {
 
-    // foreach -> map|filter
+input.addEventListener("input", (event) => {
+
     const filtered = Object.values(elem)
     filtered.filter(card => {
-
-        //  .toLowerCase()
-         if (card.children[2].innerHTML.toLowerCase().includes(event.target.value.toLowerCase())){
+         if (card.children[2].innerHTML.toLowerCase().includes(event.target.value.toLowerCase()) || card.children[1].innerHTML.toLowerCase().includes(event.target.value.toLowerCase()) ){
              console.log(card)
              card.style.display = 'flex'
          } else {
@@ -56,6 +57,17 @@ input.addEventListener("change", (event) => {
     })
 
 }) 
+function deleteDuplicates(str){
+    let arr2 = [];
+    let arr = str.split(" ")
+    arr.forEach((arrElement) =>{
+        if(!arr2.includes(arrElement)){
+            arr2.push(arrElement)
+        }
+    })
+    return arr2.join(" ")
+}   
 
 
+console.dir(elem)
 
