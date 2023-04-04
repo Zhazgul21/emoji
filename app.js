@@ -4,7 +4,6 @@ const body = document.body;
 const wrap = document.createElement('div')
 wrap.className = 'wrapper'
 body.append(wrap)
-const input = document.querySelector('#finder')
 
 
 function createCard(obj) {
@@ -30,24 +29,33 @@ function createCard(obj) {
 
 }
 function renderCard(data){
+
     data.forEach(element => createCard(element));
 
 }
 renderCard(emoji)
 createCard(emoji)
 
+const input = document.querySelector('#finder')
 const elem = document.querySelectorAll('.card')
 console.dir(elem)
 
-input.addEventListener('change', (event) => {
-    console.log(event.target.value)
-    elem.forEach(el => console.dir(el.children[2].innerText))
-})
+input.addEventListener("change", (event) => {
 
+    // foreach -> map|filter
+    const filtered = Object.values(elem)
+    filtered.filter(card => {
 
+        //  .toLowerCase()
+         if (card.children[2].innerHTML.toLowerCase().includes(event.target.value.toLowerCase())){
+             console.log(card)
+             card.style.display = 'flex'
+         } else {
+            card.style.display = 'none'
+         }
+    })
 
-
-
+}) 
 
 
 
