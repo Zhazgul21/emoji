@@ -61,3 +61,15 @@ header h1{
     font-size: 72px;
     line-height: 87px;
 }
+#finder{
+    position: absolute;
+    top: 310px;
+    transform: translate(-50%);
+    width: 820px;
+    height: 64px;
+    border: 1px solid #CED4DA;
+    border-radius: 4px;
+    font-size: 24px;
+    line-height: 21px;
+    color: #ABB5BE;
+}
